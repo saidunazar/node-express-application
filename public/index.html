@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hi there!</h1>
+      <hr />
+    </header>
+    <main>
+      <form>
+        <div class="form-control">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your name..."
+            id="name"
+          />
+        </div>
+        <div class="form-control">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email..."
+            id="email"
+          />
+        </div>
+        <div class="form-cotrol">
+          <button id="login-button">Login</button>
+          <button id="register-button">Register</button>
+        </div>
+      </form>
+    </main>
+    <script>
+      const name = document.getElementById("name");
+      const email = document.getElementById("email");
+      const loginButton = document.getElementById("login-button");
+      const registerButton = document.getElementById("register-button");
+      loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log(name.value);
+        window
+          .fetch("/api/add-people", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: "Saidu" }),
+          })
+          .then((data) => console.log(data.json()))
+          .then((data) => window.location.replace("/home"));
+      });
+      registerButton.addEventListener("click", (e) => {
+        e.preventDefault();
+      });
+    </script>
+  </body>
+</html>

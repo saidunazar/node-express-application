@@ -1,0 +1,52 @@
+body {
+  font-family: monospace;
+  width: 50%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    ".  main . ";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 4fr;
+  color: darkblue;
+  border: 1px solid darkblue;
+}
+
+header {
+  grid-area: header;
+  justify-self: center;
+}
+
+main {
+  grid-area: main;
+  text-align: center;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  font-size: 1.2em;
+}
+
+.form-control input {
+  padding: 6px 10px;
+}
+
+button {
+  padding: 8px 20px;
+  background-color: white;
+}
+
+#login-button {
+  color: darkblue;
+  border: 2px solid darkblue;
+  margin-right: 5px;
+}
+
+#register-button {
+  color: orangered;
+  border: 2px solid orangered;
+  margin-left: 5px;
+}
